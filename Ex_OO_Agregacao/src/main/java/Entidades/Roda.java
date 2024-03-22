@@ -68,13 +68,15 @@ public class Roda {
         System.out.println("---Preenchendo-Roda---");
         System.out.println("Raio: ");
         this.raio = read.nextDouble();
+        read.nextLine();
         System.out.println("Material: ");
-        this.material = read.next();
+        this.material = read.nextLine();
         System.out.println("Peso: ");
         this.peso = read.nextDouble();
+        read.nextLine();
         System.out.println("Suporte Maximo: ");
         this.suporteMax = read.nextDouble();
-        
+        read.nextLine();
     }
     
     @Override

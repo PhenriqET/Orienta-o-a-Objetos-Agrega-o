@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Carro {
     private String fabricante;
     private String modelo;
-    private double motor;
+    private int motor;
     private String cor;
     List<Roda> rodas;
     
@@ -17,12 +17,12 @@ public class Carro {
     public Carro() {//Principal
         this.fabricante = " ";
         this.modelo = " ";
-        this.motor = 0.0;
+        this.motor = 0;
         this.cor = " ";
         this.rodas = new ArrayList<>();
     }
     
-    public Carro(String fabricante, String modelo, double motor, String cor, List<Roda> rodas) {
+    public Carro(String fabricante, String modelo, int motor, String cor, List<Roda> rodas) {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.motor = motor;
@@ -53,10 +53,10 @@ public class Carro {
         this.modelo = modelo;
     }
 
-    public double getMotor() {
+    public int getMotor() {
         return motor;
     }
-    public void setMotor(double motor) {
+    public void setMotor(int motor) {
         this.motor = motor;
     }
 
@@ -79,19 +79,25 @@ public class Carro {
         Scanner read = new Scanner(System.in);
         System.out.println("---Preenchendo-Carro---");
         System.out.println("Fabricante: ");
-        this.fabricante = read.next();
+        this.fabricante = read.nextLine();
         System.out.println("Modelo: ");
-        this.modelo = read.next();
+        this.modelo = read.nextLine();
         System.out.println("Motor: ");
-        this.motor = read.nextDouble();
+        this.motor = read.nextInt();
+        read.nextLine();
         System.out.println("Cor: ");
         this.cor = read.next();
-        for(int i= 0; i < rodas.size(); i++){
+        int i = 0;
+        String op;
+        do{
+        //for(int i= 0; i < rodas.size(); i++){
             System.out.println("Roda[" + i + "]: ");
             Roda aux = new Roda();
             aux.fill();
             rodas.add(aux);
-        }
+            System.out.println("Voce deseja inserir mais roda (s/n)");
+            op = read.next();
+        }while(op == "s");
         
     }
     

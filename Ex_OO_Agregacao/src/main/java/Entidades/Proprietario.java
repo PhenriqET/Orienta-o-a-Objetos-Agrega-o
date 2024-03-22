@@ -67,17 +67,24 @@ public class Proprietario {
         Scanner read = new Scanner(System.in);
         System.out.println("---Preenchendo-Proprietario---");
         System.out.println("Nome: ");
-        this.nome = read.next();
+        this.nome = read.nextLine();
         System.out.println("CPF: ");
-        this.cpf = read.next();
+        this.cpf = read.nextLine();
         System.out.println("Email: ");
-        this.email = read.next();
-        for(int i= 0; i < carros.size(); i++){
+        this.email = read.nextLine();
+        
+        char op ='\0';
+        int i = 1;
+        do{
+        //for(int i= 0; i < carros.size(); i++){
             System.out.println("Carro[" + i + "]: ");
             Carro aux = new Carro();
             aux.fill();
             carros.add(aux);
-        }
+            System.out.println("deseja inserir mais um carro (s/n)");
+             op = read.next().charAt(0);
+            i++;
+        }while(op == 's');
         
     }
     
@@ -89,5 +96,7 @@ public class Proprietario {
                + ", Email: " + this.email
                + ", Carro: " + this.carros + "}";
     }
+    
+    
     
 }
