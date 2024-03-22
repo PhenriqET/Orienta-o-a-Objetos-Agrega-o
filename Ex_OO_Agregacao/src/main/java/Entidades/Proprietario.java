@@ -1,6 +1,7 @@
 package Entidades;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Proprietario {
     private String nome;
@@ -61,5 +62,32 @@ public class Proprietario {
         this.carros = carros;
     }
     
+    //Preencher
+    public void fill(){
+        Scanner read = new Scanner(System.in);
+        System.out.println("---Preenchendo-Proprietario---");
+        System.out.println("Nome: ");
+        this.nome = read.next();
+        System.out.println("CPF: ");
+        this.cpf = read.next();
+        System.out.println("Email: ");
+        this.email = read.next();
+        for(int i= 0; i < carros.size(); i++){
+            System.out.println("Carro[" + i + "]: ");
+            Carro aux = new Carro();
+            aux.fill();
+            carros.add(aux);
+        }
+        
+    }
+    
+    //To String
+    @Override
+    public String toString(){
+        return "Prorpietario { Nome: " + this.nome
+               + ", CPF: " + this.cpf
+               + ", Email: " + this.email
+               + ", Carro: " + this.carros + "}";
+    }
     
 }
